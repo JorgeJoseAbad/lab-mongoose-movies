@@ -3,7 +3,8 @@ celebrities/index renderizado
 <ul >
       <% celebs.forEach((celeb) => { %>
         <li >
-          <%= celeb.name %> - <%=celeb.occupation%> - <%=celeb.catchPhrase%>
+          <%= celeb.name %>
+          <a href="/celebrities/<%=celeb.id%>">Details of celeb</a>
 
         </li>
       <% }) %>

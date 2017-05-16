@@ -12,5 +12,15 @@ router.get('/',(req,res,next)=>{
 
 });
 
+router.get('/:id',(req,res,next)=>{
+  const idC=req.params.id;
+  console.log(idC);
+  //res.send(idC);
+  Celebrity.findById(idC,(error,celeb)=>{
+    if (error) return next(error);
+    res.render('celebrities/show',{celeb});
+  });
+});
+
 
 module.exports = router;
