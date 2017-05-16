@@ -1,0 +1,11 @@
+celebrities/index renderizado
+<%=celebs%>
+<ul >
+      <% celebs.forEach((celeb) => { %>
+        <li >
+          <%= celeb.name %> - <%=celeb.occupation%> - <%=celeb.catchPhrase%>
+
+        </li>
+      <% }) %>
+
+    </ul>
