@@ -54,6 +54,7 @@ router.post('/:id', (req,res,next)=>{
   });
 });
 
+
 router.get('/:id',(req,res,next)=>{
   const idC=req.params.id;
   console.log('we are in /celebrities/:id');
