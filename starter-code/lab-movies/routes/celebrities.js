@@ -24,6 +24,7 @@ router.get('/',(req,res,next)=>{
 });
 
 
+
 router.post('/:id/delete',(req,res,next)=>{
   console.log('delete route');
   const celebId=req.params.id;
@@ -40,6 +41,18 @@ router.get('/new',(req,res,next)=>{
   res.render('celebrities/new');
 });
 
+router.post('/:id', (req,res,next)=>{
+  const celebID=req.params.id;
+  const updateCeleb={
+    name:req.body.name,
+    occupation:req.body.occupation,
+    catchPhrase:req.body.catchPhrase
+  };
+  Celebrity.findByIdAndUpdate(celebID,updateCeleb,(err,celeb)=>{
+    if (err) return next(err);
+    res.redirect('/celebrities');
+  });
+});
 
 router.get('/:id',(req,res,next)=>{
   const idC=req.params.id;
@@ -52,6 +65,15 @@ router.get('/:id',(req,res,next)=>{
   });
 });
 
+router.get('/:id/edit',(req,res,next)=>{
+  console.log('in edit');
+  const celebId=req.params.id;
+  Celebrity.findById(celebId,(err,celeb)=>{
+    if (err) return next(error);
+    console.log('intentando renderizar');
+    res.render('celebrities/edit', { celeb: celeb });
+  });
 
+});
 
 module.exports = router;
