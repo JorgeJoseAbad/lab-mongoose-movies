@@ -5,6 +5,10 @@ celebrities/index renderizado
         <li >
           <%= celeb.name %>
           <a href="/celebrities/<%=celeb.id%>">Details of celeb</a>
+          <form class="" action="/celebrities/<%=celeb.id%>/delete" method="post">
+            <button type="submit">Delete this petard!!</button>
+
+          </form>
 
         </li>
       <% }) %>

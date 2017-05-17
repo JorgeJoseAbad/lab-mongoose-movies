@@ -24,7 +24,15 @@ router.get('/',(req,res,next)=>{
 });
 
 
+router.post('/:id/delete',(req,res,next)=>{
+  console.log('delete route');
+  const celebId=req.params.id;
+  Celebrity.findByIdAndRemove(celebId,(err,celeb)=>{
+    if (err) {return next(err);}
+    return res.redirect('/');
+  });
 
+});
 
 router.get('/new',(req,res,next)=>{
   console.log('in router get new');
